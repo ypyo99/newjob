@@ -82,8 +82,8 @@ p { margin: 0; }
 .btn.ghost { background: transparent; color: var(--accent); }
 .btn.plain { background: transparent; border-color: var(--line); color: var(--ink); font-weight: 500; }
 .btn:disabled { opacity: .45; cursor: not-allowed; }
-.nav { display: flex; justify-content: space-between; gap: 0.75rem; margin-top: 2rem; flex-wrap: wrap; }
-.nav .btn { flex: 1 1 10rem; }
+.nav { display: flex; justify-content: space-between; gap: 0.5rem; margin-top: 2rem; flex-wrap: nowrap; }
+.nav .btn { flex: 1; min-width: 0; }
 .err { color: var(--warn); background: var(--warn-soft); border-radius: 10px; padding: 0.7rem 1rem; font-weight: 500; }
 
 /* questions */
