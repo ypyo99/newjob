@@ -628,7 +628,7 @@ function renderResult() {
     <button class="btn plain" id="edit" type="button"><b>답변 수정</b></button>
     <button class="btn plain" id="restart" type="button" style="color:var(--warn)"><b>다시 하기</b></button>
   </div>
-  <div id="imgfallback" hidden style="margin-top:1rem" class="stack"><p class="note">이 화면에서는 바로 저장할 수 없습니다. 아래 사진을 길게 누르거나(휴대폰) 마우스 오른쪽 버튼을 눌러(컴퓨터) ‘이미지 저장’을 선택하세요.</p><img id="resultimg" alt="검사 결과 사진" style="width:100%;border:1px solid var(--line);border-radius:12px"></div>
+  <div id="imgfallback" hidden style="margin-top:1rem" class="stack"><p class="note">아래 사진을 길게 누르거나(휴대폰) 마우스 오른쪽 버튼을 눌러(컴퓨터) ‘이미지 저장’을 선택하세요.</p><img id="resultimg" alt="검사 결과 사진" style="width:100%;border:1px solid var(--line);border-radius:12px"></div>
   `;
 
   app.querySelector("#restart").onclick = () => { state = fresh(); isSample = false; go(1); };
