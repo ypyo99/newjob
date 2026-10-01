@@ -152,6 +152,8 @@ input[type=text]:focus { border-color: var(--accent); outline: none; }
 textarea.copybox { width: 100%; min-height: 10rem; font-size: 0.85rem; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); padding: 0.7rem; }
 
 @media (max-width: 30rem) {
+  .actions { flex-wrap: nowrap; gap: 0.4rem; }
+  .actions .btn { flex: 1; min-width: 0; padding-inline: 0.1rem; font-size: 0.8rem; letter-spacing: -0.04em; }
   h1 { font-size: 1.65rem; }
   .choices { grid-template-columns: repeat(2, 1fr); }
   .choices .choice span { padding: 0.5rem; font-size: 0.85rem; letter-spacing: -0.02em; gap: 0.3rem; }
