@@ -302,7 +302,17 @@ const JOBS = [
   { id:"smartfarm", name:"스마트팜 관리원", cat:"농업·IT", r:{R:1,I:.7,C:.5}, v:["growth","health","stable"], s:["farm","pc"], phys:2, hours:["mid","full"], remote:0, income:2, career:["tech","office","self"],
     prep:"스마트팜 관련 기초 교육을 받고 식물공장이나 지자체 스마트 농업 시설에 지원합니다.", where:"고용24, 농업기술센터, 지역 실내농장" },
   { id:"traffic", name:"주차·교통 안내 도우미", cat:"공익·서비스", r:{R:1,S:.4}, v:["health","contribution","social"], s:["drive","listen"], phys:3, hours:["light","mid"], remote:0, income:1, career:["public","sales","tech"],
-    prep:"특별한 자격보다 신체 건강과 성실함이 중요합니다. 단기나 시간제로 일하기 좋습니다.", where:"노인일자리 여기(공익활동형), 공영주차장, 행사 대행사" }
+    prep:"특별한 자격보다 신체 건강과 성실함이 중요합니다. 단기나 시간제로 일하기 좋습니다.", where:"노인일자리 여기(공익활동형), 공영주차장, 행사 대행사" },
+  { id:"reporter", name:"시니어 기자·블로그 기자단", cat:"기자·창작", r:{A:1,I:.6,E:.4}, v:["growth","social","expertise"], s:["write","pc"], phys:2, hours:["light","mid"], remote:1, income:1, career:["office","edu"],
+    prep:"지자체나 복지관의 블로그 기자단 교육을 수료하고 지원합니다. 글쓰기나 사진 촬영을 좋아하면 유리합니다.", where:"시·군·구청 소식지, 지역 복지관, 문화재단" },
+  { id:"toyrepair", name:"장난감·자전거 수리원", cat:"기술·수리", r:{R:1,I:.4}, v:["contribution","flex","health"], s:["repair","craft"], phys:2, hours:["light","mid"], remote:0, income:1, career:["tech","self"],
+    prep:"평소 손재주가 좋다면 바로 지원할 수 있으며, 관련 무상 교육을 제공하는 곳도 있습니다.", where:"지역 장난감도서관, 지자체 자전거 수리센터" },
+  { id:"sports", name:"시니어 생활체육 강사", cat:"교육·체육", r:{S:1,R:.8,E:.5}, v:["health","social","contribution"], s:["teach","care"], phys:3, hours:["light","mid"], remote:0, income:1, career:["edu","public","arts"],
+    prep:"평소 즐기는 운동이 있다면 관련 생활체육지도사 자격을 취득해 활동 범위를 넓힐 수 있습니다.", where:"지역 체육회, 노인복지관, 시니어클럽" },
+  { id:"counselor", name:"고객상담·안내 데스크", cat:"사무·서비스", r:{S:1,C:.8}, v:["income","stable","social"], s:["listen","pc","office"], phys:1, hours:["mid","full"], remote:0, income:3, career:["sales","office","finance"],
+    prep:"전화 상담이나 안내 업무 경험이 우대되며, 무엇보다 친절한 서비스 마인드가 중요합니다.", where:"고용24, 백화점·병원·공공기관 채용 공고" },
+  { id:"monitoring", name:"일자리·복지 모니터링단", cat:"행정·공익활동", r:{C:1,I:.5}, v:["contribution","growth"], s:["pc","write","office"], phys:2, hours:["light","mid"], remote:1, income:1, career:["public","office"],
+    prep:"복지관이나 지자체의 모니터링 사업 공고가 뜰 때 신청합니다. 스마트폰 활용 능력이 필요합니다.", where:"노인일자리 여기, 지자체 노인복지과" }
 ];
 
 const CHANNELS = [
