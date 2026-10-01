@@ -594,7 +594,7 @@ function renderResult() {
   <div id="copyfallback" hidden style="margin-top:1rem"><p class="small muted">아래 글을 길게 눌러 전체 선택한 뒤 복사하세요.</p><textarea class="copybox" id="copytext" readonly></textarea></div>`;
 
   app.querySelector("#restart").onclick = () => { state = fresh(); isSample = false; go(1); };
-  app.querySelector("#saveimg").onclick = e => saveImage(e.currentTarget, { ranked, top, best, vals });
+  app.querySelector("#saveimg").onclick = e => saveImage(e.currentTarget, { ranked, top, best, next, vals });
   app.querySelector("#copy").onclick = () => {
     const txt = [
       `[새일 나침반 결과] ${state.basic.name || ""}`.trim(),
@@ -713,6 +713,38 @@ function paintResult(ctx, d) {
     prep.forEach(l => { y += 40; text(l, P + 32, 27, { color: IMG.muted }); });
     where.forEach(l => { y += 40; text(l, P + 32, 27, { color: IMG.muted }); });
     y = top0 + h;
+  });
+
+  if (d.next && d.next.length) {
+    y += 90; text("함께 살펴볼 만한 일", P, 40, { font: F_DISP, weight: 700 });
+    y += 10;
+    d.next.forEach(r => {
+      y += 60;
+      text(r.job.name, P, 30, { weight: 600 });
+      const nmW = ctx.measureText(r.job.name).width;
+      text(r.job.cat, P + nmW + 16, 24, { color: IMG.muted });
+      text(Math.round(r.score * 100) + "점", W - P, 30, { align: "right" });
+      y += 36;
+      text(r.cautions[0] || r.reasons[0], P, 24, { color: IMG.muted });
+      y += 30;
+      ctx.fillStyle = IMG.line; ctx.fillRect(P, y, CW, 1);
+    });
+  }
+
+  y += 90; text("이렇게 시작해 보세요", P, 40, { font: F_DISP, weight: 700 });
+  y += 30;
+  const steps = [
+    ["1", "위 다섯 가지 중 두 가지를 고르세요", "마음이 가장 끌리는 것과 가장 현실적인 것을 하나씩 고르면 좋습니다."],
+    ["2", "가까운 상담 창구를 찾아가세요", "중장년내일센터나 시니어클럽에서 결과를 보여주면 맞는 공고를 찾아줍니다."],
+    ["3", "짧은 교육이나 체험부터 해 보세요", "바로 취업하기보다 교육이나 공익활동으로 먼저 경험해 보면 실패 부담이 적습니다."]
+  ];
+  steps.forEach(([n, t, desc]) => {
+    y += 30;
+    text(n, P, 36, { font: F_DISP, weight: 700, color: IMG.accent });
+    text(t, P + 40, 30, { weight: 600 });
+    y += 36;
+    para(desc, P + 40, 24, CW - 40, 36, { color: IMG.muted });
+    y += 20;
   });
 
   // 찾을 곳
