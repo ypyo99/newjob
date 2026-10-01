@@ -45,10 +45,6 @@ button, input, select { font: inherit; color: inherit; }
 .top-inner { max-width: 46rem; margin: 0 auto; padding: 0.6rem 16px; display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
 .brand { display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; margin-right: auto; background: none; border: 0; padding: 0; cursor: pointer; }
 .brand svg { width: 1.6rem; height: 1.6rem; }
-.sizer { display: flex; gap: 0.25rem; align-items: center; }
-.sizer span { font-size: 0.8rem; color: var(--muted); margin-right: 0.25rem; }
-.sizer button { min-width: 2.6rem; min-height: 2.4rem; border: 1px solid var(--line); background: var(--surface); border-radius: 10px; cursor: pointer; font-weight: 600; }
-.sizer button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 .slogan { max-width: 46rem; margin: 0 auto; padding-inline: 16px; padding-block: 0.8rem 0.2rem; }
 .slogan img { display: block; width: min(100%, 22rem); height: auto; padding: 0.2rem 0.5rem; border-radius: 10px; background: transparent; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .slogan img { background: transparent; } }
@@ -178,11 +174,6 @@ textarea.copybox { width: 100%; min-height: 10rem; font-size: 0.85rem; border: 1
       새일 나침반
     </button>
     <div style="display: flex; align-items: center; gap: 1.2rem;">
-      <div class="sizer" role="group" aria-label="글자 크기">
-        <button type="button" data-size="17" id="sz1" aria-pressed="false">가</button>
-        <button type="button" data-size="19" id="sz2" aria-pressed="true">가+</button>
-        <button type="button" data-size="22" id="sz3" aria-pressed="false">가++</button>
-      </div>
       <button id="gohome-right" type="button" aria-label="처음 화면으로" style="display: flex; flex-direction: column; align-items: center; background: none; border: none; color: var(--accent); cursor: pointer; padding: 0;">
         <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="pointer-events: none;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
         <span style="font-size: 0.75rem; font-weight: 700; margin-top: 0.2rem; line-height: 1; pointer-events: none;">처음으로</span>
@@ -848,14 +839,6 @@ function toast(msg) {
   document.body.appendChild(t); setTimeout(() => t.remove(), 2200);
 }
 
-/* ---------- 글자 크기 ---------- */
-function setSize(px) {
-  document.documentElement.style.setProperty("--base", px + "px");
-  document.querySelectorAll(".sizer button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.size === String(px))));
-  try { localStorage.setItem("senior-compass-size", px); } catch (e) {}
-}
-document.querySelectorAll(".sizer button").forEach(b => b.onclick = () => setSize(+b.dataset.size));
-try { const s = localStorage.getItem("senior-compass-size"); if (s) setSize(+s); } catch (e) {}
 document.getElementById("home").onclick = () => go(0);
 const goRight = document.getElementById("gohome-right");
 if (goRight) goRight.onclick = () => go(0);
