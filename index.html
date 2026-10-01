@@ -372,6 +372,11 @@ function load() {
 const app = document.getElementById("app");
 const bar = document.getElementById("bar");
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[c]));
+const josa = (w, j) => {
+  const c = String(w).charCodeAt(String(w).length - 1);
+  if (c < 44032 || c > 55203) return j.split("/")[0];
+  return ((c - 44032) % 28 > 0) ? j.split("/")[0] : j.split("/")[1];
+};
 
 function go(i) {
   idx = i; save(); render();
@@ -549,7 +554,7 @@ function renderResult() {
   <div class="stack" style="margin-top:1rem">
     <p class="eyebrow">검사 결과</p>
     <h1>${name}의 다음 일터 지도</h1>
-    <p class="summary">${name}은 <b>${TYPES[top[0]].name}</b>과 <b>${TYPES[top[1]].name}</b> 성향이 강하고, 일에서 ${vals.length ? `<b>${vals.join(", ")}</b>을 중요하게 여기십니다.` : "여러 가치를 고르게 보십니다."}</p>
+    <p class="summary">${name}${josa(name, "은/는")} <b>${TYPES[top[0]].name}</b>과 <b>${TYPES[top[1]].name}</b> 성향이 강하고, 일에서 ${vals.length ? `<b>${vals.join(", ")}</b>${josa(vals[vals.length - 1], "을/를")} 중요하게 여기십니다.` : "여러 가치를 고르게 보십니다."}</p>
   </div>
 
   <section class="section-gap stack">
@@ -663,7 +668,7 @@ function paintResult(ctx, d) {
   ctx.fillStyle = IMG.accent; ctx.fillRect(0, 0, W, 14);
   y = 110; text("새일 나침반 · 은퇴 후 일자리 적성 검사", P, 28, { weight: 600, color: IMG.accent });
   y += 18; para(`${d.name}의 다음 일터 지도`, P, 62, CW, 80, { font: F_DISP, weight: 700 });
-  y += 14; para(`${TYPES[d.top[0]].name}과 ${TYPES[d.top[1]].name} 성향이 강합니다.${d.vals.length ? ` 일에서 ${d.vals.join(", ")}을 중요하게 여기십니다.` : ""}`, P, 34, CW, 52, { font: F_DISP, color: IMG.muted });
+  y += 14; para(`${TYPES[d.top[0]].name}과 ${TYPES[d.top[1]].name} 성향이 강합니다.${d.vals.length ? ` 일에서 ${d.vals.join(", ")}${josa(d.vals[d.vals.length - 1], "을/를")} 중요하게 여기십니다.` : ""}`, P, 34, CW, 52, { font: F_DISP, color: IMG.muted });
   if (d.sample) { y += 50; text("※ 예시 답변으로 만든 결과입니다", P, 26, { weight: 600, color: IMG.gold }); }
 
   // 흥미 유형
