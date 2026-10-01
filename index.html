@@ -623,28 +623,17 @@ function renderResult() {
   </section>
 
   <div class="actions section-gap">
-    <button class="btn" id="saveimg" type="button">결과를 사진으로 저장</button>
-    <button class="btn ghost" id="copy" type="button">결과를 글로 복사</button>
-    <button class="btn plain" id="edit" type="button">답변 수정하기</button>
-    <button class="btn plain" id="restart" type="button" style="color:var(--warn)">처음부터 다시 하기</button>
+    <button class="btn" id="saveimg" type="button">결과 저장</button>
+    
+    <button class="btn plain" id="edit" type="button">답변 수정</button>
+    <button class="btn plain" id="restart" type="button" style="color:var(--warn)">다시 하기</button>
   </div>
   <div id="imgfallback" hidden style="margin-top:1rem" class="stack"><p class="note">이 화면에서는 바로 저장할 수 없습니다. 아래 사진을 길게 누르거나(휴대폰) 마우스 오른쪽 버튼을 눌러(컴퓨터) ‘이미지 저장’을 선택하세요.</p><img id="resultimg" alt="검사 결과 사진" style="width:100%;border:1px solid var(--line);border-radius:12px"></div>
-  <div id="copyfallback" hidden style="margin-top:1rem"><p class="small muted">아래 글을 길게 눌러 전체 선택한 뒤 복사하세요.</p><textarea class="copybox" id="copytext" readonly></textarea></div>`;
+  `;
 
   app.querySelector("#restart").onclick = () => { state = fresh(); isSample = false; go(1); };
   const editBtn = app.querySelector("#edit"); if (editBtn) editBtn.onclick = () => { isSample = false; go(SCREENS.length - 2); };
   app.querySelector("#saveimg").onclick = e => saveImage(e.currentTarget, { ranked, top, best, next, vals });
-  app.querySelector("#copy").onclick = () => {
-    const txt = [
-      `[새일 나침반 결과] ${state.basic.name || ""}`.trim(),
-      `흥미 유형: ${TYPES[top[0]].name}, ${TYPES[top[1]].name}`,
-      vals.length ? `중요한 가치: ${vals.join(", ")}` : "",
-      "", "잘 맞는 일자리:",
-      ...best.map((r, i) => `${i+1}. ${r.job.name} (${Math.round(r.score*100)}점) - 준비: ${r.job.prep} / 알아볼 곳: ${r.job.where}`)
-    ].filter(Boolean).join("\n");
-    const fb = () => { const box = app.querySelector("#copyfallback"); box.hidden = false; const ta = app.querySelector("#copytext"); ta.value = txt; ta.focus(); ta.select(); };
-    try { navigator.clipboard.writeText(txt).then(() => toast("결과를 복사했습니다"), fb); } catch (e) { fb(); }
-  };
 }
 
 function jobCard(r, i) {
