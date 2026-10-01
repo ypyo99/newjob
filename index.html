@@ -185,8 +185,8 @@ textarea.copybox { width: 100%; min-height: 10rem; font-size: 0.85rem; border: 1
         <button type="button" data-size="22" id="sz3" aria-pressed="false">가++</button>
       </div>
       <button id="gohome-right" type="button" aria-label="처음 화면으로" style="display: flex; flex-direction: column; align-items: center; background: none; border: none; color: var(--accent); cursor: pointer; padding: 0;">
-        <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-        <span style="font-size: 0.75rem; font-weight: 700; margin-top: 0.2rem; line-height: 1;">처음으로</span>
+        <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="pointer-events: none;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        <span style="font-size: 0.75rem; font-weight: 700; margin-top: 0.2rem; line-height: 1; pointer-events: none;">처음으로</span>
       </button>
     </div>
   </div>
@@ -643,6 +643,7 @@ function renderResult() {
   <div id="copyfallback" hidden style="margin-top:1rem"><p class="small muted">아래 글을 길게 눌러 전체 선택한 뒤 복사하세요.</p><textarea class="copybox" id="copytext" readonly></textarea></div>`;
 
   app.querySelector("#restart").onclick = () => { state = fresh(); isSample = false; go(1); };
+  const editBtn = app.querySelector("#edit"); if (editBtn) editBtn.onclick = () => { isSample = false; go(SCREENS.length - 2); };
   app.querySelector("#saveimg").onclick = e => saveImage(e.currentTarget, { ranked, top, best, next, vals });
   app.querySelector("#copy").onclick = () => {
     const txt = [
