@@ -409,7 +409,7 @@ function stepHead(n, title, sub) {
   return `<div class="stack" style="gap:.5rem"><p class="eyebrow">${n}단계 / 4단계</p><h2>${title}</h2>${sub ? `<p class="lead">${sub}</p>` : ""}</div>`;
 }
 function navHtml(nextLabel) {
-  return `<div id="err" hidden class="err" role="alert"></div><div class="nav"><button class="btn plain" id="prev" type="button">이전</button><button class="btn" id="next" type="button">${nextLabel || "다음"}</button></div>`;
+  return `<div id="err" hidden class="err" role="alert"></div><div class="nav"><button class="btn plain" id="prev" type="button"><b>이전</b></button><button class="btn" id="next" type="button">${nextLabel || "다음"}</button></div>`;
 }
 function bindNav(validate) {
   app.querySelector("#prev").onclick = () => go(idx - 1);
@@ -625,8 +625,8 @@ function renderResult() {
   <div class="actions section-gap">
     <button class="btn" id="saveimg" type="button">결과 저장</button>
     
-    <button class="btn plain" id="edit" type="button">답변 수정</button>
-    <button class="btn plain" id="restart" type="button" style="color:var(--warn)">다시 하기</button>
+    <button class="btn plain" id="edit" type="button"><b>답변 수정</b></button>
+    <button class="btn plain" id="restart" type="button" style="color:var(--warn)"><b>다시 하기</b></button>
   </div>
   <div id="imgfallback" hidden style="margin-top:1rem" class="stack"><p class="note">이 화면에서는 바로 저장할 수 없습니다. 아래 사진을 길게 누르거나(휴대폰) 마우스 오른쪽 버튼을 눌러(컴퓨터) ‘이미지 저장’을 선택하세요.</p><img id="resultimg" alt="검사 결과 사진" style="width:100%;border:1px solid var(--line);border-radius:12px"></div>
   `;
