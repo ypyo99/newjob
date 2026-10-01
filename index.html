@@ -51,8 +51,8 @@ button, input, select { font: inherit; color: inherit; }
 .sizer button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 .slogan { max-width: 46rem; margin: 0 auto; padding-inline: 16px; padding-block: 0.8rem 0.2rem; }
 .slogan img { display: block; width: min(100%, 22rem); height: auto; padding: 0.2rem 0.5rem; border-radius: 10px; background: transparent; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .slogan img { background: #F1F5F3; } }
-:root[data-theme="dark"] .slogan img { background: #F1F5F3; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .slogan img { background: transparent; } }
+:root[data-theme="dark"] .slogan img { background: transparent; }
 .progress { height: 6px; background: var(--line); }
 .progress i { display: block; height: 100%; background: var(--accent); width: 0; transition: width .3s; }
 
