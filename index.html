@@ -292,7 +292,17 @@ const JOBS = [
   { id:"coop", name:"협동조합·사회적기업 운영", cat:"창업·공동체", r:{E:1,S:.8}, v:["contribution","social","expertise"], s:["manage","sales","office"], phys:1, hours:["mid","full"], remote:1, income:2, career:["self","public","sales","office"],
     prep:"뜻이 맞는 이웃과 함께 사회적경제 창업 교육부터 들어보세요.", where:"지역 사회적경제지원센터, 50플러스 센터" },
   { id:"insurance", name:"상담 중심 영업 (보험·금융)", cat:"영업", r:{E:1,S:.6,C:.4}, v:["income","social","flex"], s:["sales","listen","office"], phys:1, hours:["mid","full"], remote:1, income:3, career:["finance","sales","self"],
-    prep:"해당 분야의 판매 자격시험이 필요합니다. 실적제 보수 구조를 미리 꼼꼼히 확인하세요.", where:"금융·보험사 채용 설명회, 고용24" }
+    prep:"해당 분야의 판매 자격시험이 필요합니다. 실적제 보수 구조를 미리 꼼꼼히 확인하세요.", where:"금융·보험사 채용 설명회, 고용24" },
+  { id:"model", name:"시니어 모델·연기자", cat:"문화·예술", r:{A:1,E:.7,S:.4}, v:["growth","social","flex"], s:["craft","manage"], phys:2, hours:["light","mid"], remote:0, income:1, career:["arts","sales","home"],
+    prep:"시니어 모델 아카데미나 지역 복지관의 연기 교실에서 기초를 배웁니다.", where:"시니어 전문 에이전시, 지역 방송국, 광고 기획사" },
+  { id:"organizer", name:"정리수납 전문가", cat:"생활·서비스", r:{C:1,R:.6,S:.4}, v:["contribution","flex","income"], s:["manage","care"], phys:3, hours:["light","mid"], remote:0, income:2, career:["home","self"],
+    prep:"정리수납전문가 자격을 취득하면 지자체 복지 사업이나 프리랜서로 일하기 좋습니다.", where:"지자체 취약계층 주거개선 사업, 프리랜서 매칭 플랫폼" },
+  { id:"supervisor", name:"시험 감독관", cat:"사무·행정", r:{C:1,I:.4}, v:["flex","income","stable"], s:["office","manage"], phys:2, hours:["light"], remote:0, income:1, career:["office","edu","public"],
+    prep:"국가자격시험, 어학시험 등 각종 시험의 감독관 인력풀에 미리 등록해 둡니다.", where:"한국산업인력공단, 인사혁신처, 각 평가기관 사이트" },
+  { id:"smartfarm", name:"스마트팜 관리원", cat:"농업·IT", r:{R:1,I:.7,C:.5}, v:["growth","health","stable"], s:["farm","pc"], phys:2, hours:["mid","full"], remote:0, income:2, career:["tech","office","self"],
+    prep:"스마트팜 관련 기초 교육을 받고 식물공장이나 지자체 스마트 농업 시설에 지원합니다.", where:"고용24, 농업기술센터, 지역 실내농장" },
+  { id:"traffic", name:"주차·교통 안내 도우미", cat:"공익·서비스", r:{R:1,S:.4}, v:["health","contribution","social"], s:["drive","listen"], phys:3, hours:["light","mid"], remote:0, income:1, career:["public","sales","tech"],
+    prep:"특별한 자격보다 신체 건강과 성실함이 중요합니다. 단기나 시간제로 일하기 좋습니다.", where:"노인일자리 여기(공익활동형), 공영주차장, 행사 대행사" }
 ];
 
 const CHANNELS = [
