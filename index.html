@@ -459,7 +459,7 @@ function radioGroup(name, opts, current) {
 function renderBasic() {
   app.innerHTML = `${stepHead(1, "먼저, 지금의 상황을 알려주세요", "정답은 없습니다. 지금 원하는 대로 골라 주세요.")}
   <div>
-    <div class="q"><label class="q-label" for="name">불러드릴 이름 <span class="muted small">(선택)</span></label>
+    <div class="q"><label class="q-label" for="name">어르신 성함 <span class="muted small">(선택)</span></label>
       <input type="text" id="name" maxlength="12" placeholder="예: 김영순" value="${esc(state.basic.name || "")}"></div>
     ${BASIC.map((b, i) => `<fieldset class="q" style="border-left:0;border-right:0;border-top:0;margin:0;padding-inline:0"><legend class="q-label"><span class="n">${i+1}</span>${b.q}</legend>${radioGroup(b.id, b.opts, state.basic[b.id])}</fieldset>`).join("")}
   </div>${navHtml()}`;
