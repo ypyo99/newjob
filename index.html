@@ -439,7 +439,7 @@ function renderIntro() {
   <p class="muted small">약 7분 걸립니다. 답한 내용은 이 기기 안에만 저장되며 어디에도 보내지 않습니다.</p>
   <div class="actions">
     ${resumable ? `<button class="btn" id="resume" type="button">이어서 하기</button><button class="btn ghost" id="start" type="button">처음부터 시작</button>` : `<button class="btn" id="start" type="button">검사 시작하기</button>`}
-    <button class="btn plain" id="sample" type="button">예시 보기</button>
+    <button class="btn plain" id="sample" type="button" style="font-weight: 700;">예시 보기</button>
   </div>
   <p class="note">결과는 방향을 잡기 위한 참고 자료입니다. 실제 모집 조건과 제도는 시기와 지역마다 다르니 결과 화면의 안내처에서 최신 공고를 확인하세요.</p>`;
   app.querySelector("#start").onclick = () => { state = fresh(); isSample = false; go(1); };
