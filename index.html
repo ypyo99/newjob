@@ -322,7 +322,17 @@ const JOBS = [
   { id:"plantdoctor", name:"반려식물 치료사·가드너", cat:"자연·환경", r:{R:1,I:.5,S:.4}, v:["health","social","contribution"], s:["farm","care"], phys:2, hours:["light","mid"], remote:0, income:1, career:["tech","self","home"],
     prep:"지자체 농업기술센터 등에서 반려식물 관리 교육이나 마스터가드너 과정을 수료합니다.", where:"지자체 반려식물 병원, 화훼단지, 식물원" },
   { id:"heritage", name:"시니어 문화재 관리·전통 해설", cat:"문화·역사", r:{I:1,S:.6,R:.4}, v:["contribution","growth","stable"], s:["teach","lang"], phys:2, hours:["light","mid"], remote:0, income:1, career:["edu","public","arts"],
-    prep:"평소 역사에 관심이 많다면 궁능유적본부나 문화재단의 문화재 지킴이 양성 교육을 수료합니다.", where:"문화재청 관련 기관, 지자체 문화관광과, 노인일자리" }
+    prep:"평소 역사에 관심이 많다면 궁능유적본부나 문화재단의 문화재 지킴이 양성 교육을 수료합니다.", where:"문화재청 관련 기관, 지자체 문화관광과, 노인일자리" },
+  { id:"welldying", name:"웰다잉(Well-dying) 지도사", cat:"상담·교육", r:{S:1,I:.5,A:.3}, v:["contribution","growth","social"], s:["listen","teach"], phys:1, hours:["light","mid"], remote:0, income:1, career:["edu","health","public"],
+    prep:"웰다잉 지도사 민간 자격을 취득하여 복지관이나 노인대학에서 강사로 활동할 수 있습니다.", where:"대한웰다잉협회, 지역 노인복지관, 평생교육원" },
+  { id:"localtour", name:"동네 로컬 투어 가이드", cat:"관광·문화", r:{E:1,S:.8,A:.4}, v:["social","health","flex"], s:["teach","lang","sales"], phys:2, hours:["light","mid"], remote:0, income:1, career:["sales","public","self"],
+    prep:"자신이 오래 거주한 동네의 역사나 맛집을 엮어 플랫폼에 투어 코스를 올리거나 지자체 사업에 지원합니다.", where:"마이리얼트립 등 여행 플랫폼, 지자체 관광과" },
+  { id:"multiculture", name:"다문화가정 멘토·한국어 강사", cat:"교육·복지", r:{S:1,I:.6,A:.4}, v:["contribution","growth","social"], s:["teach","lang","care"], phys:1, hours:["light","mid"], remote:0, income:1, career:["edu","home","public"],
+    prep:"한국어교원 자격증이 있거나 관련 자원봉사 교육을 수료하면 다문화 센터에서 활동하기 좋습니다.", where:"지역 다문화가족지원센터, 건강가정지원센터" },
+  { id:"petsnack", name:"반려동물 수제간식 제작·창업", cat:"창업·동물", r:{A:1,R:.7,E:.5}, v:["flex","income","growth"], s:["cook","craft","sales"], phys:2, hours:["mid","full"], remote:1, income:2, career:["self","home","sales"],
+    prep:"반려동물 영양학이나 수제간식 제조 교육을 이수하고, 소규모 공방이나 온라인 판매를 기획해 보세요.", where:"50플러스 센터 창업 과정, 소상공인진흥공단" },
+  { id:"theater", name:"시니어 연극단·인형극단", cat:"문화·예술", r:{A:1,S:.8,E:.4}, v:["social","contribution","growth"], s:["craft","teach","care"], phys:2, hours:["light"], remote:0, income:1, career:["arts","home","edu"],
+    prep:"복지관 등의 연극 동아리나 시니어 예술단에 입단해 취미를 일로 연결할 수 있습니다. 어린이집 등에서 주로 공연합니다.", where:"지역 시니어클럽, 노인복지관 문화예술단" }
 ];
 
 const CHANNELS = [
