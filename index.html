@@ -312,7 +312,17 @@ const JOBS = [
   { id:"counselor", name:"고객상담·안내 데스크", cat:"사무·서비스", r:{S:1,C:.8}, v:["income","stable","social"], s:["listen","pc","office"], phys:1, hours:["mid","full"], remote:0, income:3, career:["sales","office","finance"],
     prep:"전화 상담이나 안내 업무 경험이 우대되며, 무엇보다 친절한 서비스 마인드가 중요합니다.", where:"고용24, 백화점·병원·공공기관 채용 공고" },
   { id:"monitoring", name:"일자리·복지 모니터링단", cat:"행정·공익활동", r:{C:1,I:.5}, v:["contribution","growth"], s:["pc","write","office"], phys:2, hours:["light","mid"], remote:1, income:1, career:["public","office"],
-    prep:"복지관이나 지자체의 모니터링 사업 공고가 뜰 때 신청합니다. 스마트폰 활용 능력이 필요합니다.", where:"노인일자리 여기, 지자체 노인복지과" }
+    prep:"복지관이나 지자체의 모니터링 사업 공고가 뜰 때 신청합니다. 스마트폰 활용 능력이 필요합니다.", where:"노인일자리 여기, 지자체 노인복지과" },
+  { id:"companion", name:"병원 동행 매니저", cat:"돌봄·이동", r:{S:1,C:.5,R:.3}, v:["contribution","flex","income"], s:["care","drive"], phys:2, hours:["light","mid"], remote:0, income:2, career:["health","home","sales"],
+    prep:"병원 동행 매니저 양성 교육을 받거나 요양보호사·사회복지사 자격이 있으면 우대받습니다.", where:"시·군·구 병원동행서비스 사업, 동행 매칭 플랫폼" },
+  { id:"drone", name:"시니어 드론 조종사", cat:"기술·IT", r:{R:1,I:.7}, v:["expertise","income","growth"], s:["pc","repair"], phys:2, hours:["light","mid"], remote:0, income:3, career:["tech","public"],
+    prep:"초경량비행장치(드론) 조종자 자격을 취득하면 농업 방제나 산림 감시 분야에서 일할 수 있습니다.", where:"지역 농업기술센터, 산림청, 방제 전문업체" },
+  { id:"audiobook", name:"낭독 봉사·오디오북 녹음", cat:"창작·공익", r:{A:1,S:.6,I:.4}, v:["contribution","growth","flex"], s:["write","teach"], phys:1, hours:["light"], remote:1, income:1, career:["edu","arts","office"],
+    prep:"정확한 발음과 낭독 교육을 받은 후 시각장애인 복지관이나 점자도서관에서 자원봉사로 시작합니다.", where:"한국시각장애인복지관, 지역 점자도서관" },
+  { id:"plantdoctor", name:"반려식물 치료사·가드너", cat:"자연·환경", r:{R:1,I:.5,S:.4}, v:["health","social","contribution"], s:["farm","care"], phys:2, hours:["light","mid"], remote:0, income:1, career:["tech","self","home"],
+    prep:"지자체 농업기술센터 등에서 반려식물 관리 교육이나 마스터가드너 과정을 수료합니다.", where:"지자체 반려식물 병원, 화훼단지, 식물원" },
+  { id:"heritage", name:"시니어 문화재 관리·전통 해설", cat:"문화·역사", r:{I:1,S:.6,R:.4}, v:["contribution","growth","stable"], s:["teach","lang"], phys:2, hours:["light","mid"], remote:0, income:1, career:["edu","public","arts"],
+    prep:"평소 역사에 관심이 많다면 궁능유적본부나 문화재단의 문화재 지킴이 양성 교육을 수료합니다.", where:"문화재청 관련 기관, 지자체 문화관광과, 노인일자리" }
 ];
 
 const CHANNELS = [
