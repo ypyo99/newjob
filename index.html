@@ -153,7 +153,10 @@ textarea.copybox { width: 100%; min-height: 10rem; font-size: 0.85rem; border: 1
 
 @media (max-width: 30rem) {
   h1 { font-size: 1.65rem; }
-  .likert .choice span { font-size: 0.72rem; }
+  .choices { grid-template-columns: repeat(2, 1fr); }
+  .choices .choice span { padding: 0.5rem; font-size: 0.85rem; letter-spacing: -0.02em; gap: 0.3rem; }
+  .likert { grid-template-columns: repeat(5, 1fr); } /* ensure likert stays 5 cols just in case */
+  .likert .choice span { font-size: 0.72rem; padding: 0.3rem; flex-direction: column; text-align: center; }
   .bar-row { grid-template-columns: 5rem 1fr 2.3rem; }
   .job-head { grid-template-columns: auto 1fr; }
   .fit { grid-column: 1 / -1; text-align: left; display: flex; gap: 0.5rem; align-items: baseline; }
