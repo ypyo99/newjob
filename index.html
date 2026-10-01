@@ -519,15 +519,24 @@ function scoreJob(job, ts) {
   for (const t in job.r) { wsum += job.r[t]; isum += job.r[t] * ts[t]; }
   const interest = isum / wsum;
   const vHit = job.v.filter(v => state.values.includes(v));
-  const value = state.values.length ? vHit.length / Math.min(3, state.values.length) : .5;
+  const value = state.values.length ? vHit.length / Math.max(1, Math.min(3, state.values.length)) : .5;
   const sHit = job.s.filter(s => state.skills.includes(s));
-  const skill = state.skills.length ? Math.min(1, sHit.length / Math.min(2, job.s.length)) : .3;
+  const skill = state.skills.length ? Math.min(1, sHit.length / Math.max(1, Math.min(2, job.s.length || 1))) : .3;
   let base = .45 * interest + .2 * Math.min(1, value) + .25 * skill + .1;
   const cautions = [];
   let mult = 1;
   const phys = +b.phys || 2;
   if (job.phys > phys) { mult *= job.phys - phys === 1 ? .78 : .55; cautions.push("생각하신 것보다 몸을 많이 쓰는 일입니다."); }
-  if (b.hours && !job.hours.includes(b.hours)) { mult *= .8; cautions.push(b.hours === "light" ? "원하시는 것보다 근무 시간이 긴 편입니다." : "원하시는 만큼 일할 시간이 나오지 않을 수 있습니다."); }
+  if (b.hours && !job.hours.includes(b.hours)) { 
+    mult *= .8; 
+    const hl = { light: 1, mid: 2, full: 3 };
+    const uHour = hl[b.hours];
+    const jMin = Math.min(...job.hours.map(h => hl[h]));
+    const jMax = Math.max(...job.hours.map(h => hl[h]));
+    if (uHour < jMin) cautions.push("원하시는 것보다 근무 시간이 긴 편입니다.");
+    else if (uHour > jMax) cautions.push("원하시는 만큼 일할 시간이 나오지 않을 수 있습니다.");
+    else cautions.push("근무 시간 조건이 다를 수 있습니다.");
+  }
   if (b.place === "home") { if (job.remote === 0) { mult *= .6; cautions.push("현장에 나가서 하는 일입니다."); } else if (job.remote === 1) mult *= .9; }
   const inc = +b.income || 2;
   if (job.income < inc) { mult *= job.income === inc - 1 ? .82 : .62; cautions.push("기대하시는 수입보다 적을 수 있습니다."); }
