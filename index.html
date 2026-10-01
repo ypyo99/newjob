@@ -177,11 +177,17 @@ textarea.copybox { width: 100%; min-height: 10rem; font-size: 0.85rem; border: 1
       <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="var(--accent)" stroke-width="2.5"/><path d="M16 6 L19.5 16 L16 26 L12.5 16 Z" fill="var(--accent)"/><path d="M16 16 L19.5 16 L16 26 Z" fill="var(--gold)"/></svg>
       새일 나침반
     </button>
-    <div class="sizer" role="group" aria-label="글자 크기">
-      <span>글자</span>
-      <button type="button" data-size="17" id="sz1" aria-pressed="false">가</button>
-      <button type="button" data-size="19" id="sz2" aria-pressed="true">가+</button>
-      <button type="button" data-size="22" id="sz3" aria-pressed="false">가++</button>
+    <div style="display: flex; align-items: center; gap: 1.2rem;">
+      <div class="sizer" role="group" aria-label="글자 크기">
+        <span>글자</span>
+        <button type="button" data-size="17" id="sz1" aria-pressed="false">가</button>
+        <button type="button" data-size="19" id="sz2" aria-pressed="true">가+</button>
+        <button type="button" data-size="22" id="sz3" aria-pressed="false">가++</button>
+      </div>
+      <button id="gohome-right" type="button" aria-label="처음 화면으로" style="display: flex; flex-direction: column; align-items: center; background: none; border: none; color: var(--accent); cursor: pointer; padding: 0;">
+        <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        <span style="font-size: 0.75rem; font-weight: 700; margin-top: 0.2rem; line-height: 1;">처음으로</span>
+      </button>
     </div>
   </div>
   <div class="progress" aria-hidden="true"><i id="bar"></i></div>
@@ -851,6 +857,8 @@ function setSize(px) {
 document.querySelectorAll(".sizer button").forEach(b => b.onclick = () => setSize(+b.dataset.size));
 try { const s = localStorage.getItem("senior-compass-size"); if (s) setSize(+s); } catch (e) {}
 document.getElementById("home").onclick = () => go(0);
+const goRight = document.getElementById("gohome-right");
+if (goRight) goRight.onclick = () => go(0);
 
 
 load();
